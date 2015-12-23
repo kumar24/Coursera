@@ -1,15 +1,15 @@
-
-makeCacheMatrix <- function( m = matrix() ) {
+# Programming Assignment 2: Lexical Scoping
+makeCacheMatrix <- function( mat = matrix() ) {
   
   ## Initialize I to store the inversion of matrix
   i <- NULL
   set <- function( matrix ) {
-    m <<- matrix
+    mat <<- matrix
     i <<- NULL # initialize I to null
   }
   ## Get the matrix in the program
   get <- function() {
-    m
+    mat
   }
   
   ## Set the inverse of the matrix
@@ -29,16 +29,16 @@ makeCacheMatrix <- function( m = matrix() ) {
 
 # get the inversed matrix from object x
 cacheMatrix <- function(x=matrix(), ...) {
-  m <- x$getInverse()
-  if( !is.null(m) ) {
+  mat <- x$getInverse()
+  if( !is.null(mat) ) {
     message("getting cached data")
-    return(m)
+    return(mat)
   }
   ## Compute the inverse via matrix multiplication
   data <-x$get()
-  m <- solve(data, ...)
-  x$setInverse(m) ## Set the inverse to the object
-  m
+  mat <- solve(data, ...)
+  x$setInverse(mat) ## Set the inverse to the object
+  mat
 }
 
 #use the following input to test the code
